@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>菜谱库 · 美食食谱分享平台</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="recipes">
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html"><span>🍳</span>美食食谱分享</a>
+      <nav class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="recipes.html" class="active">菜谱库</a>
+        <a href="publish.html">发布菜谱</a>
+        <a href="profile.html">我的</a>
+        <a href="about.html">关于</a>
+        <a href="login.html" class="nav-user">登录 / 注册</a>
+      </nav>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>菜谱库</h2>
+        <span id="result-count" style="color:#8a8a8a;font-size:14px"></span>
+      </div>
+
+      <form class="search-box" id="page-search-form" style="margin:0 0 26px;max-width:520px">
+        <input id="page-search" placeholder="搜索菜名、食材……" autocomplete="off">
+        <button type="submit">搜索</button>
+      </form>
+
+      <div class="categories" id="chips"></div>
+      <div class="card-grid" id="card-grid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="f-logo">🍳 美食食谱分享平台</div>
+    <p>基于 HTML + CSS + JavaScript 实现 · 毕业设计作品</p>
+    <p>© 2027 美食食谱分享平台</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

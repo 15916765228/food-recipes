@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发布菜谱 · 美食食谱分享平台</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="publish">
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html"><span>🍳</span>美食食谱分享</a>
+      <nav class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="recipes.html">菜谱库</a>
+        <a href="publish.html" class="active">发布菜谱</a>
+        <a href="profile.html">我的</a>
+        <a href="about.html">关于</a>
+        <a href="login.html" class="nav-user">登录 / 注册</a>
+      </nav>
+    </div>
+  </nav>
+
+  <main class="publish-wrap">
+    <div class="section-head">
+      <h2>发布我的菜谱</h2>
+    </div>
+    <p style="color:#8a8a8a;font-size:14px;margin:-14px 0 22px">
+      分享你的拿手好菜，发布后会出现在菜谱库中。带 * 为必填项。
+    </p>
+
+    <form id="pub-form" class="panel publish-form">
+      <label>菜名 *</label>
+      <input id="pub-name" placeholder="例如：可乐鸡翅" maxlength="20">
+
+      <label>分类与基本信息</label>
+      <div class="row">
+        <div>
+          <select id="pub-cat">
+            <option value="家常菜">家常菜</option>
+            <option value="川菜">川菜</option>
+            <option value="粤菜">粤菜</option>
+            <option value="本帮菜">本帮菜</option>
+          </select>
+        </div>
+        <div>
+          <select id="pub-diff">
+            <option value="简单">简单</option>
+            <option value="中等">中等</option>
+            <option value="困难">困难</option>
+          </select>
+        </div>
+        <div>
+          <input id="pub-time" placeholder="耗时，如 30 分钟">
+        </div>
+      </div>
+
+      <label>一句话简介</label>
+      <textarea id="pub-desc" rows="2" placeholder="简单介绍这道菜的口感、特色……" maxlength="80"></textarea>
+
+      <label>食材清单 *（每行写一样）</label>
+      <textarea id="pub-ing" rows="5" placeholder="鸡翅中 500 克&#10;可乐 1 罐&#10;生抽 2 汤匙&#10;姜片 3 片"></textarea>
+
+      <label>制作步骤 *（每行写一步）</label>
+      <textarea id="pub-steps" rows="6" placeholder="鸡翅两面划刀，冷水下锅焯水&#10;锅中放油，煎至两面金黄&#10;倒入可乐、生抽、姜片，小火焖 20 分钟&#10;大火收汁即可"></textarea>
+
+      <label>小贴士</label>
+      <textarea id="pub-tips" rows="2" placeholder="有什么独家小技巧？"></textarea>
+
+      <label>菜品图片（可选）</label>
+      <input id="pub-img" type="file" accept="image/*">
+      <img id="pub-preview" class="pub-preview" alt="图片预览" hidden>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">发布菜谱</button>
+        <a href="recipes.html" class="btn btn-fav btn-link">取消</a>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="f-logo">🍳 美食食谱分享平台</div>
+    <p>基于 HTML + CSS + JavaScript 实现 · 毕业设计作品</p>
+    <p>© 2027 美食食谱分享平台</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>菜谱详情 · 美食食谱分享平台</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="detail">
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html"><span>🍳</span>美食食谱分享</a>
+      <nav class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="recipes.html" class="active">菜谱库</a>
+        <a href="publish.html">发布菜谱</a>
+        <a href="profile.html">我的</a>
+        <a href="about.html">关于</a>
+        <a href="login.html" class="nav-user">登录 / 注册</a>
+      </nav>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="detail-head" id="detail-head"></div>
+    <div class="detail-grid" id="detail-body"></div>
+  </main>
+
+  <section class="comments">
+    <div class="container">
+      <h2 style="font-size:21px;font-weight:700;margin-bottom:20px">评论交流</h2>
+      <form class="comment-form" id="comment-form">
+        <input id="c-name" placeholder="你的昵称（选填）" maxlength="20">
+        <textarea id="c-text" placeholder="说说你的做法或者心得……" rows="3" maxlength="200"></textarea>
+        <button class="btn btn-primary" type="submit">发表评论</button>
+      </form>
+      <div class="comment-list" id="comment-list"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="f-logo">🍳 美食食谱分享平台</div>
+    <p>基于 HTML + CSS + JavaScript 实现 · 毕业设计作品</p>
+    <p>© 2027 美食食谱分享平台</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

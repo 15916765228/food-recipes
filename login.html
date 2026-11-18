@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 / 注册 · 美食食谱分享平台</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html"><span>🍳</span>美食食谱分享</a>
+      <nav class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="recipes.html">菜谱库</a>
+        <a href="publish.html">发布菜谱</a>
+        <a href="profile.html">我的</a>
+        <a href="about.html">关于</a>
+        <a href="login.html" class="nav-user active">登录 / 注册</a>
+      </nav>
+    </div>
+  </nav>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">登录</button>
+        <button class="auth-tab" data-tab="register">注册</button>
+      </div>
+
+      <div id="auth-msg" class="auth-msg"></div>
+
+      <!-- 已登录状态 -->
+      <div id="logged-in" class="logged-box" style="display:none">
+        <div class="logged-avatar">👤</div>
+        <p class="logged-text" id="logged-text"></p>
+        <button class="btn btn-fav" id="logout-btn" type="button">退出登录</button>
+      </div>
+
+      <!-- 登录表单 -->
+      <form id="login-form" class="auth-form">
+        <label>昵称</label>
+        <input id="login-name" placeholder="请输入昵称" autocomplete="username" maxlength="20">
+        <label>密码</label>
+        <input id="login-pwd" type="password" placeholder="请输入密码" autocomplete="current-password">
+        <button class="btn btn-primary" type="submit">登 录</button>
+      </form>
+
+      <!-- 注册表单 -->
+      <form id="register-form" class="auth-form" style="display:none">
+        <label>昵称</label>
+        <input id="reg-name" placeholder="设置昵称" autocomplete="username" maxlength="20">
+        <label>密码</label>
+        <input id="reg-pwd" type="password" placeholder="设置密码（至少 6 位）" autocomplete="new-password">
+        <label>确认密码</label>
+        <input id="reg-pwd2" type="password" placeholder="再次输入密码" autocomplete="new-password">
+        <button class="btn btn-primary" type="submit">注 册</button>
+      </form>
+    </div>
+    <p class="auth-note">本页登录 / 注册为前端 localStorage 模拟，数据仅保存在你的浏览器本地。</p>
+  </div>
+
+  <footer class="footer">
+    <div class="f-logo">🍳 美食食谱分享平台</div>
+    <p>基于 HTML + CSS + JavaScript 实现 · 毕业设计作品</p>
+    <p>© 2027 美食食谱分享平台</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
