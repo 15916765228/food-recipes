@@ -1,4 +1,4 @@
-/* ================== 美食食谱分享平台 · 交互脚本 ================== */
+
 
 const LS_FAV = "food_favs";
 const LS_USERS = "food_users";
@@ -6,7 +6,6 @@ const LS_USER = "food_user";
 const LS_USER_RECIPES = "food_user_recipes";
 const LS_HISTORY = "food_history";
 
-/* 图片加载失败时的占位图（渐变底 + 餐具图标） */
 const PLACEHOLDER = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300">' +
   '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">' +
@@ -15,7 +14,6 @@ const PLACEHOLDER = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(
   '<text x="200" y="180" font-size="72" text-anchor="middle">🍲</text></svg>'
 );
 
-/* 全局捕获图片加载失败，自动替换为占位图 */
 document.addEventListener("error", function (e) {
   const t = e.target;
   if (t && t.tagName === "IMG" && !t.dataset.fallback) {
@@ -24,7 +22,6 @@ document.addEventListener("error", function (e) {
   }
 }, true);
 
-/* ---------- 通用工具 ---------- */
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 }
@@ -41,7 +38,6 @@ function nowText() {
   return `${d.getMonth() + 1}月${d.getDate()}日 ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
 }
 
-/* ---------- 收藏 ---------- */
 function getFavs() { try { return JSON.parse(localStorage.getItem(LS_FAV)) || []; } catch (e) { return []; } }
 function saveFavs(ids) { localStorage.setItem(LS_FAV, JSON.stringify(ids)); }
 function isFav(id) { return getFavs().map(String).includes(String(id)); }
@@ -53,19 +49,16 @@ function toggleFav(id) {
   return favs.includes(s);
 }
 
-/* ---------- 用户 ---------- */
 function getUsers() { try { return JSON.parse(localStorage.getItem(LS_USERS)) || {}; } catch (e) { return {}; } }
 function saveUsers(u) { localStorage.setItem(LS_USERS, JSON.stringify(u)); }
 function getCurrentUser() { try { return JSON.parse(localStorage.getItem(LS_USER)); } catch (e) { return null; } }
 function setCurrentUser(u) { if (u) localStorage.setItem(LS_USER, JSON.stringify(u)); else localStorage.removeItem(LS_USER); }
 function currentName() { const u = getCurrentUser(); return u ? u.name : ""; }
 
-/* ---------- 用户投稿菜谱 ---------- */
 function getUserRecipes() { try { return JSON.parse(localStorage.getItem(LS_USER_RECIPES)) || []; } catch (e) { return []; } }
 function saveUserRecipes(list) { localStorage.setItem(LS_USER_RECIPES, JSON.stringify(list)); }
 function getAllRecipes() { return RECIPES.concat(getUserRecipes()); }
 
-/* ---------- 星级评分 ---------- */
 function ratingKey(id) { return "food_ratings_" + id; }
 function getRatings(id) { try { return JSON.parse(localStorage.getItem(ratingKey(id))) || {}; } catch (e) { return {}; } }
 function avgRating(id) {
@@ -84,7 +77,6 @@ function saveRating(id, score) {
   return true;
 }
 
-/* ---------- 浏览历史 ---------- */
 function getHistory() { try { return JSON.parse(localStorage.getItem(LS_HISTORY)) || []; } catch (e) { return []; } }
 function addHistory(id) {
   let h = getHistory().map(String).filter(x => x !== String(id));
@@ -93,7 +85,6 @@ function addHistory(id) {
   localStorage.setItem(LS_HISTORY, JSON.stringify(h));
 }
 
-/* ---------- 评论 ---------- */
 function commentKey(id) { return "food_comments_" + id; }
 function getComments(id) { try { return JSON.parse(localStorage.getItem(commentKey(id))) || []; } catch (e) { return []; } }
 function saveComments(id, cs) { localStorage.setItem(commentKey(id), JSON.stringify(cs)); }
@@ -111,7 +102,6 @@ function renderComments(id) {
     : `<p class="empty">还没有评论，快来分享你的做法吧～</p>`;
 }
 
-/* ---------- 导航用户态 ---------- */
 function updateNavUser() {
   const el = document.querySelector(".nav-user");
   if (!el) return;
@@ -119,7 +109,6 @@ function updateNavUser() {
   el.textContent = u ? "👤 " + u.name : "登录 / 注册";
 }
 
-/* ---------- 卡片模板 ---------- */
 function cardHTML(r) {
   const fav = isFav(r.id);
   const { avg } = avgRating(r.id);
@@ -142,7 +131,6 @@ function cardHTML(r) {
   </article>`;
 }
 
-/* ---------- 星级评分渲染 ---------- */
 function renderRating(id) {
   const box = document.getElementById("rating-box");
   if (!box) return;
@@ -159,7 +147,6 @@ function renderRating(id) {
     </div>`;
 }
 
-/* ---------- 首页 ---------- */
 function renderHome() {
   const grid = document.getElementById("hot-grid");
   if (grid) {
@@ -176,7 +163,6 @@ function renderHome() {
   }
 }
 
-/* ---------- 菜谱库 ---------- */
 let currentCat = "全部";
 let currentKw = "";
 
@@ -234,7 +220,6 @@ function initRecipes() {
   }
 }
 
-/* ---------- 详情页 ---------- */
 function splitIng(item) {
   const idx = String(item).search(/\s/);
   return idx > 0 ? [item.slice(0, idx), item.slice(idx + 1)] : [item, ""];
@@ -327,7 +312,6 @@ function renderDetail() {
   }
 }
 
-/* ---------- 我的收藏 ---------- */
 function renderFavorites() {
   const grid = document.getElementById("fav-grid");
   if (!grid) return;
@@ -339,7 +323,6 @@ function renderFavorites() {
     : `<p class="empty">你还没有收藏任何菜谱，去 <a href="recipes.html" style="color:#ff6b35">菜谱库</a> 逛逛吧～</p>`;
 }
 
-/* ---------- 发布菜谱 ---------- */
 function readImageFile(file, cb) {
   const reader = new FileReader();
   reader.onload = e => {
@@ -413,7 +396,6 @@ function initPublish() {
   });
 }
 
-/* ---------- 用户中心 ---------- */
 let pTab = "favs";
 
 function myLikedRecipes() {
@@ -503,7 +485,6 @@ function initProfile() {
   });
 }
 
-/* ---------- 登录 / 注册 ---------- */
 function initLogin() {
   const tabs = document.querySelectorAll(".auth-tab");
   const loginForm = document.getElementById("login-form");
@@ -581,7 +562,6 @@ function initLogin() {
   });
 }
 
-/* ---------- 全局事件委托：收藏 / 星级评分 ---------- */
 document.addEventListener("click", e => {
   const favBtn = e.target.closest("[data-fav]");
   if (favBtn) {
@@ -612,7 +592,6 @@ document.addEventListener("click", e => {
   }
 });
 
-/* ---------- 深色模式 ---------- */
 function applyTheme(t) {
   document.documentElement.dataset.theme = t;
   localStorage.setItem("food_theme", t);
@@ -638,7 +617,6 @@ function initTheme() {
   }
 }
 
-/* ---------- 入口 ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   updateNavUser();

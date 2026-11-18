@@ -1,4 +1,4 @@
-/* ================= 全局 ================= */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --primary: #ff6b35;
@@ -20,7 +20,6 @@ body {
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 
-/* ================= 顶部导航 ================= */
 .nav {
   position: sticky; top: 0; z-index: 100;
   background: rgba(255, 255, 255, 0.96);
@@ -45,7 +44,6 @@ img { display: block; max-width: 100%; }
 .nav-links a:hover { background: #fff1e8; color: var(--primary); }
 .nav-links a.active { background: var(--primary); color: #fff; }
 
-/* ================= 首页 Hero ================= */
 .hero {
   position: relative; overflow: hidden;
   padding: 90px 24px 70px;
@@ -75,7 +73,6 @@ img { display: block; max-width: 100%; }
 }
 .search-box button:hover { background: var(--primary-dark); }
 
-/* ================= 容器 ================= */
 .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 .section { padding: 56px 0; }
 .section-head {
@@ -90,7 +87,6 @@ img { display: block; max-width: 100%; }
 }
 .section-head a { color: var(--primary); font-size: 15px; }
 
-/* ================= 分类筛选 ================= */
 .categories { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
 .chip {
   padding: 9px 22px; border-radius: 999px; cursor: pointer;
@@ -100,7 +96,6 @@ img { display: block; max-width: 100%; }
 .chip:hover { border-color: var(--primary); color: var(--primary); }
 .chip.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-/* ================= 菜谱卡片 ================= */
 .card-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
 }
@@ -130,7 +125,6 @@ img { display: block; max-width: 100%; }
 .card-meta .tag { background: #f5f5f5; color: #666; }
 .card-meta .tag.cat { background: #fff2e9; color: var(--primary-dark); }
 
-/* 收藏按钮 */
 .fav-btn {
   border: none; background: rgba(255, 255, 255, 0.92); cursor: pointer;
   width: 40px; height: 40px; border-radius: 50%;
@@ -141,7 +135,6 @@ img { display: block; max-width: 100%; }
 .fav-btn:hover { transform: scale(1.12); }
 .fav-btn.on { color: #ff4757; }
 
-/* ================= 详情页 ================= */
 .detail-head {
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 44px;
   align-items: center; padding: 44px 0 20px;
@@ -168,7 +161,6 @@ img { display: block; max-width: 100%; }
 .btn-fav { background: #fff; border: 1px solid var(--line); color: var(--text); }
 .btn-fav.on { background: #fff0f2; border-color: #ff4757; color: #ff4757; }
 
-/* 详情区块 */
 .detail-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; padding: 40px 0 70px; }
 .panel {
   background: var(--card); border-radius: 16px; padding: 30px 34px;
@@ -202,7 +194,6 @@ img { display: block; max-width: 100%; }
 }
 .tips-box strong { color: var(--primary-dark); }
 
-/* ================= 评论 ================= */
 .comments { padding: 0 0 70px; }
 .comment-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 26px; }
 .comment-form input, .comment-form textarea {
@@ -222,7 +213,6 @@ img { display: block; max-width: 100%; }
 .comment-item p { font-size: 15px; color: #444; }
 .empty { color: var(--muted); font-size: 15px; padding: 20px 0; }
 
-/* ================= 页脚 ================= */
 .footer {
   background: #2b211c; color: #cbb9ad; text-align: center;
   padding: 40px 24px; font-size: 14px;
@@ -230,13 +220,11 @@ img { display: block; max-width: 100%; }
 .footer .f-logo { font-size: 20px; color: #fff; font-weight: 700; margin-bottom: 10px; }
 .footer p { margin-top: 6px; }
 
-/* ================= 关于页 ================= */
 .about-wrap { max-width: 860px; margin: 0 auto; padding: 60px 24px 90px; }
 .about-wrap h1 { font-size: 32px; margin-bottom: 24px; }
 .about-wrap h2 { font-size: 20px; margin: 30px 0 12px; color: var(--primary-dark); }
 .about-wrap p { font-size: 15.5px; color: #555; }
 
-/* ================= 响应式 ================= */
 @media (max-width: 900px) {
   .card-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .detail-head { grid-template-columns: 1fr; gap: 24px; }
@@ -252,7 +240,6 @@ img { display: block; max-width: 100%; }
   .panel { padding: 22px; }
 }
 
-/* ================= 登录 / 注册 ================= */
 .auth-wrap { min-height: 68vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 24px; }
 .auth-card { width: 100%; max-width: 420px; background: #fff; border-radius: 18px; padding: 34px 36px 40px; box-shadow: 0 14px 40px rgba(180, 120, 80, 0.15); }
 .auth-tabs { display: flex; background: #f6efe9; border-radius: 10px; padding: 4px; margin-bottom: 24px; }
@@ -272,7 +259,6 @@ img { display: block; max-width: 100%; }
 .logged-text strong { color: var(--primary); }
 .auth-note { color: #a0968e; font-size: 13px; margin-top: 20px; text-align: center; max-width: 420px; }
 
-/* ================= Toast 提示 ================= */
 .toast {
   position: fixed; left: 50%; bottom: 40px; transform: translate(-50%, 20px);
   background: #2b211c; color: #fff; padding: 12px 26px; border-radius: 999px;
@@ -281,7 +267,6 @@ img { display: block; max-width: 100%; }
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-/* ================= 星级评分 ================= */
 .rating-box { margin-top: 22px; }
 .rating-stars { display: flex; gap: 4px; }
 .rating-stars .star {
@@ -295,7 +280,6 @@ img { display: block; max-width: 100%; }
 .my-rate { color: #ffa726; }
 .byline { color: var(--muted); font-size: 14px; margin-top: 10px; }
 
-/* ================= 发布菜谱 ================= */
 .publish-wrap { max-width: 760px; margin: 0 auto; padding: 44px 24px 80px; }
 .publish-form { display: flex; flex-direction: column; gap: 8px; }
 .publish-form label { font-size: 14px; color: var(--muted); margin-top: 14px; }
@@ -313,7 +297,6 @@ img { display: block; max-width: 100%; }
 .form-actions .btn { padding: 12px 34px; }
 .btn-link { display: inline-block; text-decoration: none; text-align: center; }
 
-/* ================= 用户中心 ================= */
 .profile-wrap { max-width: 1180px; margin: 0 auto; padding: 44px 24px 80px; }
 .profile-head {
   display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
@@ -349,7 +332,6 @@ img { display: block; max-width: 100%; }
 .to-recipe { display: inline-block; margin-top: 8px; color: var(--primary); font-size: 13px; }
 .guest-box { text-align: center; padding: 70px 24px; }
 
-/* ================= 响应式补充 ================= */
 @media (max-width: 900px) {
   .profile-stats { grid-template-columns: repeat(2, 1fr); }
   .profile-wrap .card-grid { grid-template-columns: repeat(2, 1fr); }
@@ -361,7 +343,6 @@ img { display: block; max-width: 100%; }
   .profile-head .btn { margin-left: 0; }
 }
 
-/* ================= 主题切换按钮 ================= */
 .theme-toggle {
   border: 1px solid var(--line); background: #fff; cursor: pointer;
   width: 40px; height: 40px; border-radius: 50%;
@@ -370,7 +351,6 @@ img { display: block; max-width: 100%; }
 }
 .theme-toggle:hover { border-color: var(--primary); transform: rotate(18deg); }
 
-/* ================= 深色模式 ================= */
 [data-theme="dark"] {
   --primary: #ff7a45;
   --primary-dark: #ff6b35;
